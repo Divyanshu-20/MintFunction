@@ -5,7 +5,6 @@ import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 
 contract NFTMinting is ERC721URIStorage {
-
     uint256 public MINIMUM_MINT_PRICE = 0.01 ether;
     uint256 private nextTokenId;
     address[] public players;
