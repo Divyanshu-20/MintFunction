@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
-import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
+import "../lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol";
+import "../lib/openzeppelin-contracts/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 
 contract NFTMinting is ERC721URIStorage {
     uint256 public MINIMUM_MINT_PRICE = 0.01 ether;
@@ -28,7 +28,7 @@ contract NFTMinting is ERC721URIStorage {
             players.push(msg.sender);
         }
 
-        playerTokenCount[msg.sender]++;
+        playerTokenCount[msg.sender]++; 
         emit NFTMintedBy(msg.sender);
         return tokenId;
     }
