@@ -136,3 +136,6 @@ To become better at writing and deploying NFT smart contracts, you should focus 
   Get hands-on experience deploying contracts to testnets and interacting with them using scripts or frontends.
 
 ---
+
+
+// Contract Address for Deployed contract - 0x5FbDB2315678afecb367f032d93F642f64180aa3

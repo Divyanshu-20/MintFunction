@@ -5,14 +5,15 @@ import "../lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol";
 import "../lib/openzeppelin-contracts/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 
 contract NFTMinting is ERC721URIStorage {
-    uint256 public MINIMUM_MINT_PRICE = 0.01 ether;
+    uint256 public MINIMUM_MINT_PRICE;
     uint256 private nextTokenId;
     address[] public players;
     mapping(address => uint256) public playerTokenCount;
 
     event NFTMintedBy(address indexed player);
 
-    constructor() ERC721("NFTMinting", "MNFT") {
+    constructor(uint256 _minimumMintPrice) ERC721("NFTMinting", "MNFT") {
+        MINIMUM_MINT_PRICE = _minimumMintPrice;
         nextTokenId = 1;
     }
 
@@ -28,8 +29,13 @@ contract NFTMinting is ERC721URIStorage {
             players.push(msg.sender);
         }
 
-        playerTokenCount[msg.sender]++; 
+        playerTokenCount[msg.sender]++; //For each mint, increment the player's token count
         emit NFTMintedBy(msg.sender);
         return tokenId;
+    }
+
+    //Getter Functions
+    function getPlayersLength() public view returns (uint256) {
+        return players.length;
     }
 }
